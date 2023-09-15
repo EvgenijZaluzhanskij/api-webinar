@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package grpc_server;
+
+import "google/api/annotations.proto";
+import "google/api/http.proto";
+
+service MyAwesomeService {
+  rpc GetUsers (GetUsersRequest) returns (GetUsersResponse){
+    option (google.api.http) = {
+        get: "/api/users"
+        body: "*"
+    };
+  };
+}
+
+message GetUsersRequest{}
+
+message GetUsersResponse {
+  message User {
+    int64 user_id = 1 [json_name="user_id"];
+    string user_name = 2 [json_name="user_name"];
+  }
+  repeated User users = 1 [json_name="users"];
+}
