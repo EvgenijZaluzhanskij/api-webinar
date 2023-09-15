@@ -1,0 +1,6 @@
+requests
+grpcio-tools
+googleapis-common-protos
+grpc-gateway-protoc-gen-openapiv2
+protobuf
+bs4
